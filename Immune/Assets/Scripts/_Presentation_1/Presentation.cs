@@ -13,7 +13,7 @@ public class Presentation : MonoBehaviour {
 		ta.text = new string[] {
 			"Here, we have a <size=120>wound</size> on my skin!", 
 			"There is light coming through and we need to clog that up.", 
-			"Here comes the red blood cells! They will coagulate and close the wound.", 
+			"Here comes the <size=100>Platelets</size>! They will coagulate and close the wound.", 
 			"It's <size=120>CLOSING</size>. Now, it's your turn!"
 		};
 	}

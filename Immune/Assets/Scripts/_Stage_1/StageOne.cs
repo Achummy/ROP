@@ -47,7 +47,7 @@ public class StageOne : MonoBehaviour {
 	void sendUnits () {
 		image.enabled = true;
 		text.enabled = true;
-		text.text = "<color=#00B5FF>LEFT-CLICK</color> the <color=red>Red Blood Cell</color> at the bottom of the screen to send them.";
+		text.text = "<color=#00B5FF>LEFT-CLICK</color> the <color=red>Platelet</color> at the bottom of the screen to send them.";
 		if (GameObject.FindGameObjectsWithTag("Unit").Length != 0)
 			mystate = States.clear;
 	}
