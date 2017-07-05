@@ -1,0 +1,34 @@
+fileFormatVersion: 2
+guid: eb908eb620f26434d852f1a3067d71e2
+timeCreated: 1497440630
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Overpass
+  fontNames:
+  - Overpass
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: d9f395a1fc1eb4f2f87fb56e943dc822, type: 3}
+  - {fileID: 12800000, guid: bac90733c53294d4cabc1399a0ceb3cd, type: 3}
+  - {fileID: 12800000, guid: 563d5875dc59145ef821629ed5f0bd84, type: 3}
+  - {fileID: 12800000, guid: c16b332624b864c219b81f71d12a08b3, type: 3}
+  - {fileID: 12800000, guid: 1db34b76f3735479fa602835b9060450, type: 3}
+  - {fileID: 12800000, guid: ea3a7cf7ce0864cc19e5b4f91e287444, type: 3}
+  - {fileID: 12800000, guid: 1595c448ce5964194994017793047be3, type: 3}
+  - {fileID: 12800000, guid: ae2da5e89082b41eaad434340ceed27f, type: 3}
+  - {fileID: 12800000, guid: 1e16423a009d4466c8af409c206aaec7, type: 3}
+  - {fileID: 12800000, guid: 08647f1d24fde4aca888451a137778c6, type: 3}
+  - {fileID: 12800000, guid: 3eb1122d438574b2eb841e54c12608b4, type: 3}
+  - {fileID: 12800000, guid: b024148ee3f754039b56fe11312ccc95, type: 3}
+  - {fileID: 12800000, guid: 4ee1fcaee214d44dab03dbd4227b0746, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

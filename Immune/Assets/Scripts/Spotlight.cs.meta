@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 9708350517f9d490082ed2e6fca10d2e
+timeCreated: 1498792894
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - bacteria: {fileID: 1248758808851090, guid: 53484a81b44644834927f44d24008a3b, type: 2}
+  executionOrder: 200
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

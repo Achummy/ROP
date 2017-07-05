@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: e9751077f561b4798866365210cf244a
+timeCreated: 1497440661
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Neometric
+  fontNames:
+  - Neometric
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

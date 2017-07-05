@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 3b9996ea44030427f985c08a24460e0b
+timeCreated: 1499212837
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - ktc: {fileID: 1385037501494822, guid: e212221abf8f44f3da9f64e76164ae1f, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

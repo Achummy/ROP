@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 3363ad4409d314c3eacd8678d18f331d
+timeCreated: 1498682340
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - textBox: {fileID: 114402754690296022, guid: b20ab9e9fdeba45898a5b8e550de945a,
+      type: 2}
+  - continueText: {fileID: 114374153830188554, guid: b20ab9e9fdeba45898a5b8e550de945a,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

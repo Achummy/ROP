@@ -1,11 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/Characters/ThirdPersonCharacter/Scripts/ThirdPersonCharacter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Virus.cs">
     <Files>
-      <File FileName="Assets/Scripts/CameraRaycaster.cs" Line="15" Column="26" />
-      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="7" Column="32" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="46" Column="3" />
-      <File FileName="Assets/Standard Assets/Characters/ThirdPersonCharacter/Scripts/ThirdPersonCharacter.cs" Line="33" Column="15" />
+      <File FileName="Assets/Scripts/MenuUI.cs" Line="62" Column="2" />
+      <File FileName="Assets/Scripts/StageFour.cs" Line="18" Column="27" />
+      <File FileName="Assets/Scripts/StageFive.cs" Line="15" Column="25" />
+      <File FileName="Assets/Scripts/Virus.cs" Line="25" Column="38" />
+      <File FileName="Assets/Scripts/_Depricated/Units.cs" Line="89" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
