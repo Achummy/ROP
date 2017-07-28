@@ -38,10 +38,10 @@ public class MenuUI : MonoBehaviour {
 	}
 	void FixedUpdate () {
 		if (infectionLevel.enabled) {
-			GameObject[] bacterias = GameObject.FindGameObjectsWithTag ("Enemy");
-			if (bacterias.Length < 150) {
+			GameObject[] bacteria = GameObject.FindGameObjectsWithTag ("Enemy");
+			if (bacteria.Length < 150) {
 				infectionLevel.text = "Low Infection";
-			} else if (bacterias.Length < 300) {
+			} else if (bacteria.Length < 300) {
 				infectionLevel.text = "<color=yellow>Infected</color>";
 			} else {
 				infectionLevel.text = "<color=red>High Infection</color>";
@@ -52,6 +52,7 @@ public class MenuUI : MonoBehaviour {
 
 	public void PauseGame () {
 		Time.timeScale = 0;
+		Var.lastLevel = SceneManager.GetActiveScene ().name;
 		pausePanel.SetActive (true);
 	}
 
@@ -66,7 +67,14 @@ public class MenuUI : MonoBehaviour {
 	}
 
 	public void MainMenu () {
+		ContinueGame ();
+		Var.lastLevel = SceneManager.GetActiveScene ().name;
 		SceneManager.LoadScene ("Menu");
+	}
+
+	public void Glossary () {
+		Time.timeScale = 1;
+		SceneManager.LoadScene ("Glossary");
 	}
 
 	IEnumerator impendingDeath() {

@@ -17,6 +17,7 @@ public class StageFour : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		Var.zBoundary = -15.0f;
 		Var.infected = false;
 		mystate = States.clickselect;
 		Time.timeScale = 0;
@@ -46,20 +47,20 @@ public class StageFour : MonoBehaviour {
 		image.enabled = true;
 		text.enabled = true;
 		text.text = "<size=30>Then, send a <color=white>helper</color> T-Cell to 'analyze' the virus.</size>";
-		if (Input.GetMouseButtonDown(0)) 
+		if (Input.GetMouseButtonDown (0))
 			mystate = States.clear;
 	}
 
 	void clear () {
+		Time.timeScale = 1;
 		image.enabled = true;
 		text.enabled = true;
-		text.text = "<size=30>Finally send a <color=blue>killer</color> T-Cell to kill <size=50>all virus</size> of the same type.</size>";
+		text.text = "<size=30>Finally, send a <color=blue>killer</color> T-Cell to destroy\n<size=50>all virus</size> of the same type.</size>";
 		if (Input.GetMouseButtonDown(0)) 
 			mystate = States.done;
 	}
 
 	void done () {
-		Time.timeScale = 1;
 		image.enabled = false;
 		text.enabled = false;
 		if (GameObject.FindGameObjectsWithTag("Static").Length == 0) {

@@ -23,16 +23,17 @@ public class RedBloodCell : MonoBehaviour {
 		GameObject go = unitSelection.selectedObject;
 		if (go) {
 			if (go.name.Contains ("Wound")) {
-				StartCoroutine (redCells (go.transform.position, (int)go.GetComponent<Light> ().intensity));
-			} else if (go.name.Contains ("Bacteria")) {
-				StartCoroutine (redCells (go.transform.position, go.GetComponent<Bacteria> ().bacterias.Count));
+				StartCoroutine (redCells (go.transform.position, go));
+			} else {
+				Camera.main.GetComponent<Warnings> ().wrongCell (go.name);
 			}
 		}
 	}
 
-	IEnumerator redCells(Vector3 target, int intensity) {
-		for (int i = 0; i < intensity; i++) {
-			GameObject cell = Instantiate (rbc, new Vector3 (Random.Range(-16.0f, 16.0f),0.0f, -28.0f), Quaternion.identity);
+	IEnumerator redCells(Vector3 target, GameObject go) {
+		int wound = go.GetComponent<Wound> ().size;
+		for (int i = 0; i < wound; i++) {
+			GameObject cell = Instantiate (rbc, new Vector3 (Random.Range(-16.0f, 16.0f),0.0f, Var.zBoundary), Quaternion.identity);
 			Units unit = cell.GetComponent<Units> ();
 			unit.addTarget(target);
 			yield return new WaitForSeconds (0.3f);

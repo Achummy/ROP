@@ -18,7 +18,9 @@ public class StageThree : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		Var.infected = true;
+		Var.zBoundary = -10.0f;
 		mystate = States.clickselect;
+		Time.timeScale = 0;
 	}
 
 	// Update is called once per frame
@@ -36,7 +38,7 @@ public class StageThree : MonoBehaviour {
 	void clickSelect () {
 		image.enabled = true;
 		text.enabled = true;
-		text.text = "<size=70>Other wounds got INFECTED!!!</size>";
+		text.text = "Lets see how you deal with wounds AND bacteria.";
 		if (Input.GetMouseButtonDown(0)) 
 			mystate = States.sendunits;
 	}
@@ -44,17 +46,20 @@ public class StageThree : MonoBehaviour {
 	void sendUnits () {
 		image.enabled = true;
 		text.enabled = true;
-		text.text = "<size=60>Close my wounds first! Bacterias are coming.</size>";
-		if (Input.GetMouseButtonDown(0)) 
+		text.text = "<size=60><color=blue>Remember</color></size>:\nbacteria <color=red>MULTIPLY</color> and <color=red>COME OUT</color> of wounds.";
+		if (Input.GetMouseButtonDown (0)) {
 			mystate = States.clear;
+		}
 	}
 
 	void clear () {
 		image.enabled = true;
 		text.enabled = true;
-		text.text = "<size=40>Keep track of my infection level! Don't let me die!</size>";
-		if (Input.GetMouseButtonDown(0)) 
+		text.text = "You <color=red>lose</color> if too many bacteria are present.";
+		if (Input.GetMouseButtonDown (0)) {
 			mystate = States.done;
+			Time.timeScale = 1;
+		}
 	}
 
 	void done () {
@@ -62,7 +67,7 @@ public class StageThree : MonoBehaviour {
 		text.enabled = false;
 		if (GameObject.FindGameObjectsWithTag("Static").Length == 0) {
 			Var.infected = false;
-			SceneManager.LoadScene ("Presentation_3");
+			SceneManager.LoadScene ("TCells");
 		}
 	}
 

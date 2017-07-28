@@ -6,15 +6,15 @@ public class Intro : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		TextAnimator ta = this.gameObject.GetComponent<TextAnimator> ();
-		ta.nextScene = "Presentation_1";
+		Var.subjectNumber++;
+		TextAnimator ta = GetComponent<TextAnimator> ();
+		ta.nextScene = "Platelet";
 		ta.text = new string[] {
-			"<size=120>GREETINGS</size> little ones!",
-			"You will manipulate <size=120><color=red>cells</color></size> to <size=150>protect</size> me.", 
-			"Hopefully...", 
-			"These cells, <size=120>LEUKOCYTES</size>, move through veins and the <size=100>LYMPH</size>.",
-			"They are commonly known as <color=white>white blood cells</color>.",
-			"Anyways, lets move on..."
+			"Hello ... \n   Subject # " + Var.subjectNumber + "\n   You have been assigned a new mission.",
+			"Objective:  <size=120><color=#005FFFFF>protect</color></size> your body. \nDescription: <color=yellow>defective</color> immune system...",
+			"You will have to control <color=#00FF4CFF>white blood cells</color> to defend yourself against <color=red>bacteria</color>.",
+			"White blood cells are also known as <size=120>LEUKOCYTES</size>.",
+			"Time to start your training."
 		};
 	}
 

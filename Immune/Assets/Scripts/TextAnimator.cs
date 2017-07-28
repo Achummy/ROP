@@ -12,6 +12,7 @@ public class TextAnimator : MonoBehaviour {
 
 	public Text textBox;
 	public Text continueText;
+	public float textSpeed = 0.02f;
 	public string nextScene { get; set;}
 	public string[] text { get; set;}
 
@@ -52,7 +53,7 @@ public class TextAnimator : MonoBehaviour {
 				}
 			} else {
 				textBox.text = text[currentTextDisplayed].Substring(0, i) + adjustRichText(richText);
-				yield return new WaitForSeconds(0.02f);
+				yield return new WaitForSeconds(textSpeed);
 			}
 		}
 		yield return new WaitForSeconds (0.5f);
@@ -98,18 +99,20 @@ public class TextAnimator : MonoBehaviour {
 	 * <summary> Displays <c>continueText</c> when <c>textDisplayed</c> is true. </summary>
 	 */
 	private void displayContinue () {
-		if (textDisplayed) {
-			continueText.enabled = true;
-		} else {
-			continueText.enabled = false;
+		if (continueText != null) {
+			if (textDisplayed) {
+				continueText.enabled = true;
+			} else {
+				continueText.enabled = false;
+			}
 		}
 	}
 		
-	void OnGUI () {
-		// Creates a Grey Rectangle with 80% opacity, full screen width and 35% of the screen height
-		// anchored at the bottom of the screen.
-		GUI.color = new Color (0.5f, 0.5f, 0.5f, 0.8f);
-		GUI.Box (new Rect(0.0f, Screen.height - Screen.height*0.35f, Screen.width, Screen.height*0.35f), "");
-	}
+//	void OnGUI () {
+//		// Creates a Grey Rectangle with 80% opacity, full screen width and 35% of the screen height
+//		// anchored at the bottom of the screen.
+//		GUI.color = new Color (0.5f, 0.5f, 0.5f, 0.8f);
+//		GUI.Box (new Rect(0.0f, Screen.height - Screen.height*0.35f, Screen.width, Screen.height*0.35f), "");
+//	}
 
 }

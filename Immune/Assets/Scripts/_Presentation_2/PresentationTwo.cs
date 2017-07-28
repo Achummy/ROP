@@ -8,12 +8,12 @@ public class PresentationTwo : MonoBehaviour {
 		TextAnimator ta = this.gameObject.GetComponent<TextAnimator> ();
 		ta.nextScene = "Stage_2";
 		ta.text = new string[] {
-			"<size=120>OH NO!<color=yellow>BACTERIAS!</color></size> \nThey came through my wounds!", 
-			"<size=100><color=yellow>BACTERIAS</color></size> multiply over time.", 
-			"Luckily, we have <size=100>LEUKOCYTES</size> (aka white blood cells).", 
-			"The one that <size=80>eats</size> bacterias are called <size=120>MACROPHAGES</size>.",
-			"<size=80>Macrophages</size> <size=20>sadly</size> <size=80>dies after killing enough <color=yellow>bacterias</color>.</size>",
-			"<size=80>Now, help me fend off the rest of them.</size>"
+			"These yellow rods are <size=120><color=yellow>bacteria</color></size>.",
+			"They come through wounds and this is how you get an infection.",
+			"<color=yellow>Bacteria</color> <size=110>multiply</size> over time.", 
+			"Macrophages <size=80>eat</size> bacteria by <size=100><color=#005FFFFF>Phagocytosis</color></size>.",
+			"<size=70>Macrophages die after killing enough <color=yellow>bacteria</color>.</size>",
+			"<size=70>Time to try it out yourself.</size>"
 		};
 	}
 }

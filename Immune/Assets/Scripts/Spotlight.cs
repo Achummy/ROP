@@ -13,7 +13,7 @@ public class Spotlight : MonoBehaviour {
 	void Awake () {
 		lt = GetComponent<Light> ();
 		initialIntensity = lt.intensity;
-		StartCoroutine (spawnBacterias ());
+		StartCoroutine (spawnbacteria ());
 	}
 
 	// Use this for initialization
@@ -47,7 +47,7 @@ public class Spotlight : MonoBehaviour {
 			return "unknown";
 	}
 
-	IEnumerator spawnBacterias () {
+	IEnumerator spawnbacteria () {
 		while (Var.infected == true) {
 			yield return new WaitForSeconds (Random.Range (15, 20));
 			Vector3 pos = new Vector3 (Random.Range (100, Screen.width-100), Random.Range (250, Screen.height-100), Camera.main.transform.position.y);

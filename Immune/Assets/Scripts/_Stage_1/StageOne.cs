@@ -18,7 +18,7 @@ public class StageOne : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-
+		Var.zBoundary = -10.0f;
 		unitSelection = Camera.main.gameObject.GetComponent<UnitSelection> ();
 		mystate = States.clickselect;
 
@@ -37,6 +37,7 @@ public class StageOne : MonoBehaviour {
 	}
 
 	void clickSelect () {
+		Time.timeScale = 0;
 		image.enabled = true;
 		text.enabled = true;
 		text.text = "<color=#00B5FF>LEFT-CLICK</color> any <color=w>wound</color> to select it.";
@@ -48,8 +49,10 @@ public class StageOne : MonoBehaviour {
 		image.enabled = true;
 		text.enabled = true;
 		text.text = "<color=#00B5FF>LEFT-CLICK</color> the <color=red>Platelet</color> at the bottom of the screen to send them.";
-		if (GameObject.FindGameObjectsWithTag("Unit").Length != 0)
+		if (GameObject.FindGameObjectsWithTag ("Unit").Length != 0) {
 			mystate = States.clear;
+			Time.timeScale = 1;
+		}
 	}
 
 
@@ -68,7 +71,7 @@ public class StageOne : MonoBehaviour {
 		int inactive = 0;
 		foreach (GameObject go in spotlight) if (!go.activeInHierarchy) inactive++;
 		if (inactive == 3) {
-			SceneManager.LoadScene ("Presentation_2");
+			SceneManager.LoadScene ("Macrophage");
 		}
 	}
 

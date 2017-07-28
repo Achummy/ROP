@@ -11,10 +11,10 @@ public class Presentation : MonoBehaviour {
 		TextAnimator ta = this.gameObject.GetComponent<TextAnimator> ();
 		ta.nextScene = "Stage_1";
 		ta.text = new string[] {
-			"Here, we have a <size=120>wound</size> on my skin!", 
-			"There is light coming through and we need to clog that up.", 
-			"Here comes the <size=100>Platelets</size>! They will coagulate and close the wound.", 
-			"It's <size=120>CLOSING</size>. Now, it's your turn!"
+			"The bright disk represents a <size=120><color=white>WOUND</color></size>.", 
+			"<size=80>Platelets</size> will coagulate and close the wound." +
+			"                         ", 
+			"Now, it's your turn."
 		};
 	}
 }

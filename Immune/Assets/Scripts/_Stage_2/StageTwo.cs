@@ -15,7 +15,7 @@ public class StageTwo : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-
+		Var.zBoundary = -10.0f;
 		unitSelection = Camera.main.gameObject.GetComponent<UnitSelection> ();
 		mystate = States.clickselect;
 
@@ -32,7 +32,7 @@ public class StageTwo : MonoBehaviour {
 	void clickSelect () {
 		image.enabled = true;
 		text.enabled = true;
-		text.text = "You know what to do!\n<color=#00B5FF>Look</color> at the new button!";
+		text.text = "<color=#00B5FF>Look</color> at the new button!\n You can now send Macrophages.";
 		if (unitSelection.selectedObject) 
 			mystate = States.done;
 	}

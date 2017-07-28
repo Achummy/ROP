@@ -5,12 +5,12 @@ using UnityEngine;
 public class Bacteria : MonoBehaviour {
 
 	// Use this for initialization
-	public GameObject bacteria;
-	public Queue<Transform> bacterias {get; set;}
+	public GameObject bact;
+	public Queue<Transform> bacteria {get; set;}
 	private GameObject macrophage;
 
 	void Awake () {
-		bacterias = new Queue<Transform> ();
+		bacteria = new Queue<Transform> ();
 		getChildObjects();
 		StartCoroutine (multiply ());
 	}
@@ -22,7 +22,7 @@ public class Bacteria : MonoBehaviour {
 	private void getChildObjects () {
 		foreach (Transform child in transform) {
 			if (child.gameObject.name.Contains("Bac")) {
-				bacterias.Enqueue (child);
+				bacteria.Enqueue (child);
 			}
 		}
 	}
@@ -31,7 +31,7 @@ public class Bacteria : MonoBehaviour {
 		while (true) {
 			yield return new WaitForSeconds (Random.Range(17,20));
 			if (macrophage == null) {
-				Instantiate (bacteria, this.transform.position + Vector3.right*10 + Vector3.back*5, Quaternion.identity);
+				Instantiate (bact, this.transform.position + Vector3.right*10 + Vector3.back*5, Quaternion.identity);
 			}
 		}
 		
@@ -41,21 +41,21 @@ public class Bacteria : MonoBehaviour {
 		if (coll.gameObject.name.Contains("Macrophage") && macrophage==null) {
 			if (coll.gameObject.GetComponent<Units> ().currentTarget == transform.position) {
 				StopAllCoroutines ();
-				StartCoroutine (destroyBacterias ());
+				StartCoroutine (destroybacteria ());
 				macrophage = coll.gameObject;
 			}
 		}
 	}
 
-	IEnumerator destroyBacterias () {
+	IEnumerator destroybacteria () {
 		while (true) {
-			if (bacterias.Count == 0) {
+			if (bacteria.Count == 0) {
 				yield return new WaitForSeconds(0.5f);
 				Destroy (macrophage);
 				this.gameObject.SetActive(false);
 			}
 			yield return new WaitForSeconds (0.3f);
-			Destroy (bacterias.Dequeue ().gameObject);
+			Destroy (bacteria.Dequeue ().gameObject);
 		}
 	}
 
@@ -63,7 +63,6 @@ public class Bacteria : MonoBehaviour {
 		Vector3 screenPos = Camera.main.WorldToScreenPoint (this.transform.position);
 		Vector3 newPos = new Vector3 (Mathf.Clamp (screenPos.x, 0.0f, Screen.width), Mathf.Clamp (screenPos.y, 250.0f, Screen.height), screenPos.z);
 		if (screenPos != newPos) {
-			Debug.Log ("It went through!");
 			this.transform.position = Camera.main.ScreenToWorldPoint (newPos);
 		}
 	}

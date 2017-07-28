@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: a5621c70d1f9a4c959eb796b715bfc4e
-timeCreated: 1498753482
+timeCreated: 1500473383
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - macrophage: {fileID: 1054365609158572, guid: f9e87db43f93945f1abfdc366a2b9659,
+      type: 2}
+  - target: {fileID: 1427667300191342, guid: 1fa1266df80d143bbb952ff2b437af14, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
