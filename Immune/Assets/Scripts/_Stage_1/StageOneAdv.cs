@@ -2,28 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-
-
-public class StageOne : MonoBehaviour {
+public class StageOneAdv : MonoBehaviour {
 
 	public Text text;
 	public Image image;
 	public GameObject[] wounds;
-	private UnitSelection unitSelection;
+	public Text scoreText;
+	private int startScore;
 
 	private enum States {clickselect, sendunits, clear, firststage, movecamera};
 	private States mystate;
 
 	// Use this for initialization
 	void Awake () {
+		startScore = Var.score;
 		Var.infected = false;
 		Var.zBoundary = -10.0f;
-		unitSelection = Camera.main.gameObject.GetComponent<UnitSelection> ();
 		mystate = States.clickselect;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (mystate == States.clickselect)
@@ -36,42 +34,43 @@ public class StageOne : MonoBehaviour {
 			firststage ();
 	}
 
+	void FixedUpdate () {
+		int inactive = 0;
+		foreach (GameObject go in wounds) if (!go.activeInHierarchy) inactive++;
+		Var.score = startScore + (inactive * 50);
+		scoreText.text = "Score: "+ Var.score;
+	}
+
 	void clickSelect () {
 		Time.timeScale = 0;
 		image.enabled = true;
 		text.enabled = true;
-		text.text = "<color=#00B5FF>LEFT-CLICK</color> any <color=w>wound</color> to select it.";
-		if (unitSelection.selectedObject) 
+		text.text = "<size=35>A HUGE wound appeared near my vein.</size>";
+		if (Input.GetMouseButtonDown(0)) 
 			mystate = States.sendunits;
 	}
 
 	void sendUnits () {
 		image.enabled = true;
 		text.enabled = true;
-		text.text = "<color=#00B5FF>LEFT-CLICK</color> the <color=red>Platelet</color> at the bottom of the screen to send them.";
-		if (GameObject.FindGameObjectsWithTag ("Unit").Length != 0) {
+		text.text = "<size=35>The immune system <b>NEVER</b> waits.\nIt reacts <b>VERY</b> quickly.</size>";
+		if (Input.GetMouseButtonDown(0)) {
 			mystate = States.clear;
-			Time.timeScale = 1;
 		}
 	}
 
 	void clear () {
 		image.enabled = true;
 		text.enabled = true;
-		text.text = "Great! Close the remaining wounds!";
-		if (Input.GetMouseButtonDown(0)) 
+		text.text = "<size=35>You have 20 seconds.\nThe more you clear, the better your score.</size>";
+		if (Input.GetMouseButtonDown (0)) {
 			mystate = States.firststage;
+			Time.timeScale = 1;
+		} 
 	}
 
 	void firststage () {
 		image.enabled = false;
 		text.enabled = false;
-		int inactive = 0;
-		foreach (GameObject go in wounds) if (!go.activeInHierarchy) inactive++;
-		if (inactive == 3) {
-			Var.score += (int)Mathf.Floor(120.0f - Time.timeSinceLevelLoad);
-			SceneManager.LoadScene ("Stage_1.5");
-		}
 	}
-
 }

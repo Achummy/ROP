@@ -7,6 +7,7 @@ public class Intro : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		Var.subjectNumber++;
+		Var.score = 0;
 		TextAnimator ta = GetComponent<TextAnimator> ();
 		ta.nextScene = "Platelet";
 		ta.text = new string[] {

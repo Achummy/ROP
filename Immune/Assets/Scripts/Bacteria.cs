@@ -7,7 +7,7 @@ public class Bacteria : MonoBehaviour {
 	// Use this for initialization
 	public GameObject bact;
 	public Queue<Transform> bacteria {get; set;}
-	private GameObject macrophage;
+	public GameObject macrophage;
 
 	void Awake () {
 		bacteria = new Queue<Transform> ();
@@ -29,7 +29,7 @@ public class Bacteria : MonoBehaviour {
 
 	IEnumerator multiply () {
 		while (true) {
-			yield return new WaitForSeconds (Random.Range(17,20));
+			yield return new WaitForSeconds (Random.Range(15,20));
 			if (macrophage == null) {
 				Instantiate (bact, this.transform.position + Vector3.right*10 + Vector3.back*5, Quaternion.identity);
 			}

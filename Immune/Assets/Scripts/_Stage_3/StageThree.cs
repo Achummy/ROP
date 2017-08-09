@@ -10,7 +10,11 @@ public class StageThree : MonoBehaviour {
 
 	public Text text;
 	public Image image;
-	public GameObject[] spotlight;
+	public GameObject[] wounds;
+	public GameObject[] bacteria;
+	public Text scoreText;
+	public Text bonus;
+	private bool bonusScore = true;
 
 	private enum States {clickselect, sendunits, clear, done};
 	private States mystate;
@@ -21,6 +25,7 @@ public class StageThree : MonoBehaviour {
 		Var.zBoundary = -10.0f;
 		mystate = States.clickselect;
 		Time.timeScale = 0;
+		bonus.text = "";
 	}
 
 	// Update is called once per frame
@@ -33,12 +38,32 @@ public class StageThree : MonoBehaviour {
 			clear ();
 		else if (mystate == States.done)
 			done ();
+		
+		if (bonusScore) {
+			int inactiveWounds = 0;
+			foreach (GameObject go in wounds) if (!go.activeInHierarchy) inactiveWounds++;
+			int inactiveBacteria = 0;
+			foreach (GameObject bac in bacteria) if (!bac.activeInHierarchy) inactiveBacteria++;
+			if (inactiveWounds == 2) {
+				bonus.color = Color.grey;
+				Var.score += 50;
+				bonusScore = false;
+			} else if (inactiveBacteria > 0) {
+				bonus.text = "Bonus Failed";
+				bonus.color = Color.grey;
+				bonusScore = false;
+			}
+		}
+	}
+
+	void FixedUpdate () {
+		scoreText.text = "Score: "+ Var.score;
 	}
 
 	void clickSelect () {
 		image.enabled = true;
 		text.enabled = true;
-		text.text = "Lets see how you deal with wounds AND bacteria.";
+		text.text = "Great!\nNow, lets see how you deal with wounds AND bacteria.";
 		if (Input.GetMouseButtonDown(0)) 
 			mystate = States.sendunits;
 	}
@@ -57,6 +82,7 @@ public class StageThree : MonoBehaviour {
 		text.enabled = true;
 		text.text = "You <color=red>lose</color> if too many bacteria are present.";
 		if (Input.GetMouseButtonDown (0)) {
+			bonus.text = "<i>Clear the wounds first</i>";
 			mystate = States.done;
 			Time.timeScale = 1;
 		}
@@ -66,6 +92,7 @@ public class StageThree : MonoBehaviour {
 		image.enabled = false;
 		text.enabled = false;
 		if (GameObject.FindGameObjectsWithTag("Static").Length == 0) {
+			Var.score += (int)Mathf.Floor(120.0f - Time.timeSinceLevelLoad);
 			Var.infected = false;
 			SceneManager.LoadScene ("TCells");
 		}

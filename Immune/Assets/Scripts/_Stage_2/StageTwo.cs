@@ -8,6 +8,7 @@ public class StageTwo : MonoBehaviour {
 
 	public Text text;
 	public Image image;
+	public Text scoreText;
 	private UnitSelection unitSelection;
 
 	private enum States {clickselect, done};
@@ -18,7 +19,7 @@ public class StageTwo : MonoBehaviour {
 		Var.zBoundary = -10.0f;
 		unitSelection = Camera.main.gameObject.GetComponent<UnitSelection> ();
 		mystate = States.clickselect;
-
+		scoreText.text = "Score: "+ Var.score;
 	}
 
 	// Update is called once per frame
@@ -41,8 +42,9 @@ public class StageTwo : MonoBehaviour {
 	void done () {
 		image.enabled = false;
 		text.enabled = false;
-		if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0) {
-			SceneManager.LoadScene ("Stage_3");
+		if (GameObject.FindGameObjectsWithTag("Static").Length == 0) {
+			Var.score += (int)Mathf.Floor(120.0f - Time.timeSinceLevelLoad);
+			SceneManager.LoadScene ("Stage_2.5");
 		}
 	}
 

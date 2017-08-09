@@ -5,9 +5,8 @@ using UnityEngine;
 public class Virus : MonoBehaviour {
 
 	public GameObject virus;
-	public GameObject deadCell;
-	public static bool recognized;
-	private GameObject macrophage;
+	public static bool recognized { get; set;}
+	public GameObject macrophage;
 
 	// Use this for initialization
 	void Awake () {
@@ -52,7 +51,6 @@ public class Virus : MonoBehaviour {
 		while (Var.infected) {
 			yield return new WaitForSeconds (Random.Range(30,40));
 			if (macrophage == null) {
-				Instantiate (deadCell, this.transform);
 				Vector3 pos = Camera.main.ScreenToWorldPoint (
 					              new Vector3 (Random.Range (100, Screen.width - 100), Random.Range (300, Screen.height - 100), Camera.main.WorldToScreenPoint (this.transform.position).z));
 				this.transform.SetPositionAndRotation (pos, Quaternion.identity);

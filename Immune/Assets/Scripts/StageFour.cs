@@ -11,6 +11,7 @@ public class StageFour : MonoBehaviour {
 	public Text text;
 	public Image image;
 	public GameObject[] spotlight;
+	public Text scoreText;
 
 	private enum States {clickselect, sendunits, clear, done};
 	private States mystate;
@@ -21,6 +22,7 @@ public class StageFour : MonoBehaviour {
 		Var.infected = false;
 		mystate = States.clickselect;
 		Time.timeScale = 0;
+		scoreText.text = "Score: "+ Var.score;
 	}
 
 	// Update is called once per frame
@@ -64,6 +66,7 @@ public class StageFour : MonoBehaviour {
 		image.enabled = false;
 		text.enabled = false;
 		if (GameObject.FindGameObjectsWithTag("Static").Length == 0) {
+			Var.score += (int)Mathf.Floor(120.0f - Time.timeSinceLevelLoad);
 			Var.infected = false;
 			SceneManager.LoadScene ("Stage_5");
 		}

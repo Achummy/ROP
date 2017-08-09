@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class RedBloodCell : MonoBehaviour {
 
 	public GameObject rbc;
+	public Text tipsText;
 
 	private UnitSelection unitSelection;
 	// Use this for initialization
@@ -14,9 +15,10 @@ public class RedBloodCell : MonoBehaviour {
 		unitSelection = Camera.main.GetComponent<UnitSelection> ();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
+	void FixedUpdate () {
+		if (Var.tipsStartTime + 2.0f < Time.time) {
+			tipsText.text = "";
+		}
 	}
 
 	public void createCell () {
@@ -25,7 +27,8 @@ public class RedBloodCell : MonoBehaviour {
 			if (go.name.Contains ("Wound")) {
 				StartCoroutine (redCells (go.transform.position, go));
 			} else {
-				Camera.main.GetComponent<Warnings> ().wrongCell (go.name);
+				Var.tipsStartTime = Time.time;
+				tipsText.text = "This is not a Wound!";
 			}
 		}
 	}

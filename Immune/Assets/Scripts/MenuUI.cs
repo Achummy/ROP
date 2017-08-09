@@ -39,14 +39,18 @@ public class MenuUI : MonoBehaviour {
 	void FixedUpdate () {
 		if (infectionLevel.enabled) {
 			GameObject[] bacteria = GameObject.FindGameObjectsWithTag ("Enemy");
-			if (bacteria.Length < 150) {
+			if (bacteria.Length < 100) {
 				infectionLevel.text = "Low Infection";
-			} else if (bacteria.Length < 300) {
+			} else if (bacteria.Length < 200) {
 				infectionLevel.text = "<color=yellow>Infected</color>";
 			} else {
 				infectionLevel.text = "<color=red>High Infection</color>";
 				StartCoroutine (impendingDeath ());
 			}
+		}
+
+		if (Var.score > Var.highscore) {
+			Var.highscore = Var.score;
 		}
 	}
 

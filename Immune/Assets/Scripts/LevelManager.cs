@@ -12,6 +12,9 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public void nextLevel () {
+		if (SceneManager.GetActiveScene ().name == "Menu") {
+			Var.score = 0;
+		}
 		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex + 1);
 	}
 

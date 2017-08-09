@@ -6,9 +6,11 @@ public class Wound : MonoBehaviour {
 
 	public GameObject bacteria;
 	public int size { get; set;}
+	private Vector3 reduceSize;
 
 	// Use this for initialization
 	void Awake () {
+		reduceSize = new Vector3 (0.0f, -0.10f, 0.0f);
 		StartCoroutine (spawnbacteria ());
 		size = 25;
 	}
@@ -17,7 +19,7 @@ public class Wound : MonoBehaviour {
 		if (coll.gameObject.name.Contains("RBC")) {
 			Destroy (coll.gameObject);
 			size--;
-			transform.localScale += new Vector3 (0.0f, -0.11f, 0.0f);
+			transform.localScale += reduceSize;
 		}
 		if (size == 0) {
 			this.gameObject.SetActive(false);
